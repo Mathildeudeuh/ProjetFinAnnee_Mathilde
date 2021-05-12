@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class Quit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // Quand on clique sur le bouton "quitter", le jeu se ferme
+    public void QuitGame()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Application.Quit();
     }
 }
