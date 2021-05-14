@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class LoadGame : MonoBehaviour
+public class Loading : MonoBehaviour
 {
     // Pour organiser et ne pas se tromper de scène à charger
     [SerializeField] private string SceneName;
