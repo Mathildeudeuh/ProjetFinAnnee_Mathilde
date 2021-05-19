@@ -55,6 +55,9 @@ public class Player : MonoBehaviour
         if (canJump == true)
             // ... On ajoute de la force qui prend la valeur de jump (verticalement)s
             body2D.AddForce(new Vector2(0, jump), ForceMode2D.Impulse);
+
+        // Le paramètre d'animation "Jump" s'active
+        animator.SetBool("Jump", true);
     }
 
 
@@ -79,6 +82,9 @@ public class Player : MonoBehaviour
         if (horizontalSpeed < maxSpeed)
             // ... alors on ajoute de la force en multipliant les valeurs de speed et move (que horizontalement)
             body2D.AddForce(new Vector2(speed * move, 0));
+
+        // Le paramètre d'animation "Speed" prend la valeur de horizontalSpeed
+        animator.SetFloat("Speed", horizontalSpeed);
     }
 
     void Update()
