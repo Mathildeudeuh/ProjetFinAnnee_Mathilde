@@ -10,8 +10,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxSpeed;
     [SerializeField] private float jump;
 
-    
-
+    private Rigidbody2D body2D;
+    private SpriteRenderer sprite;
+    private Animator animator;
 
     // Variable pour utiliser les contôles
     private Controls controls;
@@ -47,7 +48,14 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        // body2D doit se référer au component RigidBody2D
+        body2D = GetComponent<Rigidbody2D>();
 
+        // sprite doit se référer au component SpriteRenderer
+        sprite = GetComponent<SpriteRenderer>();
+
+        // animator doit se référer au component Animator
+        animator = GetComponent<Animator>();
     }
 
 
