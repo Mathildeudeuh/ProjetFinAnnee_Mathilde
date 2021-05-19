@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 
     private float move;
 
+    // Variable pour utiliser les components
     private Rigidbody2D body2D;
     private SpriteRenderer sprite;
     private Animator animator;
