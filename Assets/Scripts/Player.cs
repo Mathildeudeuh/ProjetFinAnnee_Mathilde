@@ -65,6 +65,15 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    private void FixedUpdate()
+    {
+        var horizontalSpeed = Mathf.Abs(body2D.velocity.x);
+
+        // Si la valeur de horizontalSpeed est inférieur à celle de maxSpeed...
+        if (horizontalSpeed < maxSpeed)
+            // ... alors on ajoute de la force en multipliant les valeurs de speed et move (que horizontalement)
+            body2D.AddForce(new Vector2(speed * move, 0));
+    }
 
     void Update()
     {
