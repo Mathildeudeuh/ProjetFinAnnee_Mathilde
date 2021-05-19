@@ -36,6 +36,9 @@ public class Player : MonoBehaviour
     {
         // move prend la valeur du float
         move = obj.ReadValue<float>();
+
+        // Le personnage se retourne quand la valeur de la direction est négative
+        sprite.flipX = (move < 0);
     }
 
     private void MoveOnCanceled(InputAction.CallbackContext obj)
