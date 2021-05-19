@@ -8,13 +8,41 @@ public class Player : MonoBehaviour
     // Variable pour utiliser les contôles
     private Controls controls;
 
-    // Start is called before the first frame update
+
+    private void OnEnable()
+    {
+
+        controls = new Controls();
+
+        controls.Enable();
+
+        controls.Main.Move.performed += MoveOnPerformed;
+        controls.Main.Move.canceled += MoveOnCanceled;
+        controls.Main.Jump.performed += JumpOnPerformed;
+    }
+
+    private void MoveOnPerformed(InputAction.CallbackContext obj)
+    {
+
+    }
+
+    private void MoveOnCanceled(InputAction.CallbackContext obj)
+    {
+        
+    }
+
+    private void JumpOnPerformed(InputAction.CallbackContext obj)
+    {
+
+    }
+
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         
