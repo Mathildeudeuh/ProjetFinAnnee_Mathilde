@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxSpeed;
     [SerializeField] private float jump;
 
+    private float move;
+
     private Rigidbody2D body2D;
     private SpriteRenderer sprite;
     private Animator animator;
@@ -32,12 +34,14 @@ public class Player : MonoBehaviour
 
     private void MoveOnPerformed(InputAction.CallbackContext obj)
     {
-        
+        // move prend la valeur du float
+        move = obj.ReadValue<float>();
     }
 
     private void MoveOnCanceled(InputAction.CallbackContext obj)
     {
-
+        // Le personnage ne se déplace plus
+        move = 0;
     }
 
     private void JumpOnPerformed(InputAction.CallbackContext obj)
