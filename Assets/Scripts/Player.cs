@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float jump;
 
     private float move;
+    private bool canJump = false;
 
     // Variable pour utiliser les components
     private Rigidbody2D body2D;
@@ -50,7 +51,10 @@ public class Player : MonoBehaviour
 
     private void JumpOnPerformed(InputAction.CallbackContext obj)
     {
-
+        // Si canJump est vrai...
+        if (canJump == true)
+            // ... On ajoute de la force qui prend la valeur de jump (verticalement)s
+            body2D.AddForce(new Vector2(0, jump), ForceMode2D.Impulse);
     }
 
 
@@ -68,6 +72,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // horizontalSpeed prend la valeur de la vitesse du personnage (horizontalement)
         var horizontalSpeed = Mathf.Abs(body2D.velocity.x);
 
         // Si la valeur de horizontalSpeed est inférieur à celle de maxSpeed...
@@ -78,6 +83,16 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        
+        // Création d'un raycast qui prend la position du personnage, qui va vers le bas et qui mesure 1 cm
+        var touch = Physics2D.Raycast(transform.position, new Vector2(0, -1), 0.001f);
+
+        // Si le le raycast touche un collider...
+        if (touch.collider != null)
+            // ... le personnage peut sauter
+            canJump = true;
+        // Sinon...
+        else
+            // ... le personnage ne peut pas sauter
+            canJump = false;
     }
 }
