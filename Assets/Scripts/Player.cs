@@ -95,11 +95,14 @@ public class Player : MonoBehaviour
 
         // Si le le raycast touche un collider...
         if (touch.collider != null)
+        {
             // ... le personnage peut sauter
-            canJump = true;
+            canJump = false;
+            animator.SetBool("Jump", true);
+        }
         // Sinon...
         else
             // ... le personnage ne peut pas sauter
-            canJump = false;
+            canJump = true;
     }
 }
