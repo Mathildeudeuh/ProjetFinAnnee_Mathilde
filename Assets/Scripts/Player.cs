@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxSpeed;
     [SerializeField] private float jump;
     [SerializeField] LayerMask layer;
+    [SerializeField] GameObject raycast;
 
     private float move;
     private bool canJump = false;
@@ -91,15 +92,18 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Création d'un raycast qui prend la position du personnage, qui va vers le bas et qui mesure 1 cm
-        var touch = Physics2D.Raycast(transform.position, new Vector2(0, -1), 0.001f, 9);
+        var touch = Physics2D.Raycast(transform.position, new Vector2(0, -1), 0.001f);
 
         // Si le le raycast touche un collider...
         if (touch.collider != null)
+        {
             // ... le personnage peut sauter
-            canJump = true;
+            canJump = false;
+            animator.SetBool("Jump", false);
+        }
         // Sinon...
         else
             // ... le personnage ne peut pas sauter
-            canJump = false;
+            canJump = true;
     }
 }
