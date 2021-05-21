@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxSpeed;
     [SerializeField] private float jump;
     [SerializeField] LayerMask layer;
-    [SerializeField] GameObject raycast;
 
     private float move;
     private bool canJump = false;
@@ -55,8 +54,10 @@ public class Player : MonoBehaviour
     {
         // Si canJump est vrai...
         if (canJump == true)
+        {
             // ... On ajoute de la force qui prend la valeur de jump (verticalement)s
             body2D.AddForce(new Vector2(0, jump), ForceMode2D.Impulse);
+        }
 
         // Le paramètre d'animation "Jump" s'active
         animator.SetBool("Jump", true);
@@ -82,8 +83,10 @@ public class Player : MonoBehaviour
 
         // Si la valeur de horizontalSpeed est inférieur à celle de maxSpeed...
         if (horizontalSpeed < maxSpeed)
+        {
             // ... alors on ajoute de la force en multipliant les valeurs de speed et move (que horizontalement)
             body2D.AddForce(new Vector2(speed * move, 0));
+        }
 
         // Le paramètre d'animation "Speed" prend la valeur de horizontalSpeed
         animator.SetFloat("Speed", horizontalSpeed);
@@ -92,18 +95,21 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Création d'un raycast qui prend la position du personnage, qui va vers le bas et qui mesure 1 cm
-        var touch = Physics2D.Raycast(transform.position, new Vector2(0, -1), 0.001f);
+        var touch = Physics2D.Raycast(transform.position, new Vector2(0, -1), 0.55f, layer);
 
         // Si le le raycast touche un collider...
         if (touch.collider != null)
         {
             // ... le personnage peut sauter
-            canJump = false;
+            canJump = true;
             animator.SetBool("Jump", false);
         }
         // Sinon...
         else
+        {
             // ... le personnage ne peut pas sauter
-            canJump = true;
+            canJump = false;
+            animator.SetBool("Jump", true);
+        }
     }
 }
