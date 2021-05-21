@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Loading : MonoBehaviour
 {
     // Pour organiser et ne pas se tromper de scène à charger
-    [SerializeField] private string SceneName;
+    [SerializeField] private string sceneName;
 
     // Pour le prefab à charger
     [SerializeField] private GameObject sceneToLoad;
@@ -26,7 +26,7 @@ public class Loading : MonoBehaviour
         DontDestroyOnLoad(screen);
 
         // Nom de la scène à charger
-        var loading = SceneManager.LoadSceneAsync("Game");
+        var loading = SceneManager.LoadSceneAsync(sceneName);
         // Ne pas lancer la scène
         loading.allowSceneActivation = false;
 

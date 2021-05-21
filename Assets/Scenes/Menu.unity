@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc718d9b64d571143bf431c56d845059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: Game
+  sceneName: Game
   sceneToLoad: {fileID: 2355172508590157113, guid: 95b9399ff1025554baee1e0b5ea4dd6b, type: 3}
 --- !u!1 &318759544
 GameObject:
