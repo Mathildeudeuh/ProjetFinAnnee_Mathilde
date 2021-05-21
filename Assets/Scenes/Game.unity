@@ -3019,7 +3019,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3271,7 +3271,7 @@ MonoBehaviour:
   jump: 7
   layer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
   raycast: {fileID: 0}
 --- !u!1 &1255068335
 GameObject:
