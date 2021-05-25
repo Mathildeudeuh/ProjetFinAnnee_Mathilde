@@ -3646,8 +3646,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fed82a5e4da600479c8455dcfc690ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconde: 10
+  seconde: 5
+  sceneToLoad: {fileID: 696303469585816894, guid: 2f513775a8cc7a14db7638a5b65e4e59, type: 3}
   myText: {fileID: 2061212410}
+  sceneName: GameOver
 --- !u!4 &1743914130
 Transform:
   m_ObjectHideFlags: 0
