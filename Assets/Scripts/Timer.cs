@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float seconde;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (seconde > 0)
+        {
+            seconde -= Time.deltaTime;
+            Debug.Log(seconde);
+        }
     }
 }
