@@ -21,5 +21,12 @@ public class Timer : MonoBehaviour
             myText.text = Mathf.Round(seconde).ToString();
             Debug.Log(seconde);
         }
+
+        else
+        {
+            Debug.Log("STOOOOOP");
+        }
+           
+
     }
 }
