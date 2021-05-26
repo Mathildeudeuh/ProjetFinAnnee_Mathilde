@@ -22,14 +22,11 @@ public class Timer : MonoBehaviour
         {
             seconde -= Time.deltaTime;
             myText.text = Mathf.Round(seconde).ToString();
-            Debug.Log(seconde);
         }
 
         else
         {
-            Debug.Log("STOOOOOP");
             LoadSceneAsync();
-
         }
         
 
