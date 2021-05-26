@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Items : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //var timer = new Timer();
+        Debug.Log("tkt ça fonctionne");
+    }
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         

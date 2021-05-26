@@ -16,20 +16,17 @@ public class Timer : MonoBehaviour
         
     }
 
-    void Update()
+    public void Update()
     {
         if (seconde > 0)
         {
             seconde -= Time.deltaTime;
             myText.text = Mathf.Round(seconde).ToString();
-            Debug.Log(seconde);
         }
 
         else
         {
-            Debug.Log("STOOOOOP");
             LoadSceneAsync();
-
         }
         
 
