@@ -16,7 +16,7 @@ public class Timer : MonoBehaviour
         
     }
 
-    public void Update()
+    void Update()
     {
         if (seconde > 0)
         {
