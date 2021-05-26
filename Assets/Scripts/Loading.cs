@@ -12,6 +12,9 @@ public class Loading : MonoBehaviour
     // Pour le prefab à charger
     [SerializeField] private GameObject sceneToLoad;
 
+    // Pour les animations 
+    private Animator animator;
+
     // Ajout d'une coroutine pour limiter le temps d'apparition de l'écran de chargement / prefab
     public void LoadSceneAsync()
     {
@@ -38,14 +41,13 @@ public class Loading : MonoBehaviour
             {
                 // ... la scène se lance
                 loading.allowSceneActivation = true;
-                
+
                 // ... et l'écran de chargement / prefab se détruit
                 Destroy(screen);
             }
 
             // Le prefab apparaît pendant 3 secondes
             yield return new WaitForSeconds(3);
-
         }
 
     }
