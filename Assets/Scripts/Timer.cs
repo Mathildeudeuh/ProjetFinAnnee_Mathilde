@@ -88,10 +88,13 @@ public class Timer : MonoBehaviour
 
     // Vérification de collision
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        var starItems = new Items();
-        // onTrigger devient vrai
-        onTrigger = true;
+    {    
+        if (collision.tag == "items")
+        {
+            // onTrigger devient vrai
+            onTrigger = true;
+        }
+        
     }
 
 }

@@ -9,6 +9,6 @@ public class Items : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         star.SetActive(false);
-        Debug.Log("tkt ça fonctionne");
+        Debug.Log("ça fonctionne");
     }
 }
