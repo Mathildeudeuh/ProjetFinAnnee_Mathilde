@@ -2,21 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
     // A modifier dans l'inspector
-    //[SerializeField] private GameObject star;
+    // Valeur du temps
     [SerializeField] private float seconde;
-    [SerializeField] private Text myText;
-    [SerializeField] private string sceneName;
-    [SerializeField] private GameObject loadScreen;
-
-    private bool onTrigger;
     [SerializeField] private float addTime;
 
-    
+    // Afficher le texte
+    [SerializeField] private Text myText;
+
+    // Nom de la scène à charger
+    [SerializeField] private string sceneName;
+
+    // Prefab qui sert d'écran de chargement
+    [SerializeField] private GameObject loadScreen;
+
+    // Booléen
+    private bool onTrigger;
+
+    // Pour les animations 
+    //private Animator animator;
+
 
     void Start()
     {
@@ -42,10 +51,13 @@ public class Timer : MonoBehaviour
             }
         }
 
+        // Si onTrigger est vrai
         else
         {
+            // seconde prend la valeur de addTime
             seconde = addTime;
             myText.text = Mathf.Round(seconde).ToString();
+            // ... onTrigger passe en faux
             onTrigger = false;
         }
 
@@ -76,6 +88,9 @@ public class Timer : MonoBehaviour
             {
                 // ... la scène se lance
                 loading.allowSceneActivation = true;
+                
+                // ... le paramètre d'animation "Dispartion" s'active
+                animator.SetBool("Disparition", true);
 
                 // ... et l'écran de chargement / prefab se détruit
                 Destroy(screen);
@@ -89,10 +104,11 @@ public class Timer : MonoBehaviour
 
     // Vérification de collision
     private void OnTriggerEnter2D(Collider2D collision)
-    {    
-        if (collision.tag == "items")
+    {   
+        // Si la collision a lieu avec un objet qui a le tag "Items"...
+        if (collision.tag == "Items")
         {
-            // onTrigger devient vrai
+            // ... onTrigger devient vrai
             onTrigger = true;
         }
         

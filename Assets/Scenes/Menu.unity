@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Game
-  sceneToLoad: {fileID: 8296412200858179847, guid: f9e50930971c8954b966c613b200a5c3, type: 3}
+  screenToLoad: {fileID: 8296412200858179847, guid: f9e50930971c8954b966c613b200a5c3, type: 3}
 --- !u!1 &318759544
 GameObject:
   m_ObjectHideFlags: 0
