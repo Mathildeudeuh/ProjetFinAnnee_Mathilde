@@ -6,25 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class Loading : MonoBehaviour
 {
-    // Pour organiser et ne pas se tromper de scène à charger
+    // A modifier dans l'inspector
+    // Nom de la scène à charger
     [SerializeField] private string sceneName;
 
-    // Pour le prefab à charger
-    [SerializeField] private GameObject sceneToLoad;
+    // Prefab à charger
+    [SerializeField] private GameObject screenToLoad;
 
     // Pour les animations 
-    private Animator animator;
+    //private Animator animator;
 
     // Ajout d'une coroutine pour limiter le temps d'apparition de l'écran de chargement / prefab
     public void LoadSceneAsync()
     {
         StartCoroutine(LoadScreenCoroutine());
+        //animator.SetBool("Disparition", true);
     }
 
     IEnumerator LoadScreenCoroutine()
     {
         // Instantiation du prefab
-        var screen = Instantiate(sceneToLoad);
+        var screen = Instantiate(screenToLoad);
         // Ne pas détruire l'écran de chargement / prefab
         DontDestroyOnLoad(screen);
 
@@ -41,6 +43,9 @@ public class Loading : MonoBehaviour
             {
                 // ... la scène se lance
                 loading.allowSceneActivation = true;
+
+                // ... le paramètre d'animation "Dispartion" s'active
+                //animator.SetBool("Disparition", true);
 
                 // ... et l'écran de chargement / prefab se détruit
                 Destroy(screen);

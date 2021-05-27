@@ -6,12 +6,22 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     // A modifier dans l'inspector
+    // Valeur de la vitesse du joueur
     [SerializeField] private float speed;
+
+    // Valeur de la vitesse maximale atteinte par le joueur
     [SerializeField] private float maxSpeed;
+
+    // Valeur de la force du saut
     [SerializeField] private float jump;
+
+    // Nom de calque
     [SerializeField] LayerMask layer;
 
-    private float move;
+    // Valeur qui indique la direction du joueur
+    private float moveLR;
+
+    // Booléen
     private bool canJump = false;
 
     // Variable pour utiliser les components
@@ -23,6 +33,7 @@ public class Player : MonoBehaviour
     private Controls controls;
 
 
+    // Pour les contrôles
     private void OnEnable()
     {
         // Instance de la fonction Controls
@@ -37,17 +48,17 @@ public class Player : MonoBehaviour
 
     private void MoveOnPerformed(InputAction.CallbackContext obj)
     {
-        // move prend la valeur du float
-        move = obj.ReadValue<float>();
+        // moveLR prend la valeur du float
+        moveLR = obj.ReadValue<float>();
 
         // Le personnage se retourne quand la valeur de la direction est négative
-        sprite.flipX = (move < 0);
+        sprite.flipX = (moveLR < 0);
     }
 
     private void MoveOnCanceled(InputAction.CallbackContext obj)
     {
         // Le personnage ne se déplace plus
-        move = 0;
+        moveLR = 0;
     }
 
     private void JumpOnPerformed(InputAction.CallbackContext obj)
@@ -55,7 +66,7 @@ public class Player : MonoBehaviour
         // Si canJump est vrai...
         if (canJump == true)
         {
-            // ... On ajoute de la force qui prend la valeur de jump (verticalement)s
+            // ... ajout de la force qui prend la valeur de jump (verticalement)s
             body2D.AddForce(new Vector2(0, jump), ForceMode2D.Impulse);
         }
 
@@ -84,8 +95,8 @@ public class Player : MonoBehaviour
         // Si la valeur de horizontalSpeed est inférieur à celle de maxSpeed...
         if (horizontalSpeed < maxSpeed)
         {
-            // ... alors on ajoute de la force en multipliant les valeurs de speed et move (que horizontalement)
-            body2D.AddForce(new Vector2(speed * move, 0));
+            // ... alors on ajoute de la force en multipliant les valeurs de speed et moveLR (que horizontalement)
+            body2D.AddForce(new Vector2(speed * moveLR, 0));
         }
 
         // Le paramètre d'animation "Speed" prend la valeur de horizontalSpeed
@@ -102,6 +113,7 @@ public class Player : MonoBehaviour
         {
             // ... le personnage peut sauter
             canJump = true;
+            // Le paramètre d'animation "Jump" se désactive
             animator.SetBool("Jump", false);
         }
         // Sinon...
@@ -109,6 +121,8 @@ public class Player : MonoBehaviour
         {
             // ... le personnage ne peut pas sauter
             canJump = false;
+
+            //Le paramètre d'animation "Jump" s'active
             animator.SetBool("Jump", true);
         }
     }
