@@ -101,20 +101,10 @@ public class Timer : MonoBehaviour
         }
     }
 
-    // Vérification de collision
-    /*private void OnTriggerEnter2D(Collider2D collision)
-    {   
-        // Si la collision a lieu avec un objet qui a le tag "Items"...
-        if (collision.tag == "Items")
-        {
-            // ... onTrigger devient vrai
-            onTrigger = true;
-        }
-        
-    }*/
-
+    // Fonction publique --> peut être appeler dans un autre script
     public void AddTime()
     {
+        // seconde prend la valeur de addTime
         seconde = addTime;
     }
 

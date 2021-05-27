@@ -15,7 +15,11 @@ public class Items : MonoBehaviour
     {
         // Le prefab "star" se désactive
         star.SetActive(false);
-        var timer = FindObjectOfType<Timer>();
-        timer.AddTime();
+
+        // timer va chercher dans le script "Timer"
+        var time = FindObjectOfType<Timer>();
+
+        // On exécute AddTime() du script Timer
+        time.AddTime();
     }
 }
