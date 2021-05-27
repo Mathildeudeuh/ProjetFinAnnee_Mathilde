@@ -82,7 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3943599133057640462}
   - component: {fileID: 3943599133057640463}
-  - component: {fileID: 8446863141777374928}
+  - component: {fileID: 1725501552253758833}
   m_Layer: 0
   m_Name: StarItem
   m_TagString: Untagged
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &8446863141777374928
+--- !u!58 &1725501552253758833
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,6 +169,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0025532246, y: 0.005106479}
+  m_Offset: {x: 0, y: -0.000000029802322}
   serializedVersion: 2
-  m_Radius: 0.4004228
+  m_Radius: 0.3793393

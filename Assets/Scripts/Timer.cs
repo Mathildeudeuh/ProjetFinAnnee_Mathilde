@@ -14,18 +14,12 @@ public class Timer : MonoBehaviour
     // Afficher le texte
     [SerializeField] private Text myText;
 
-    // Nom de la scène à charger
-    [SerializeField] private string sceneName;
-
-    // Prefab qui sert d'écran de chargement
-    [SerializeField] private GameObject loadScreen;
+    // Prefab
+    [SerializeField] GameObject gameOver;
+    [SerializeField] GameObject scene;
 
     // Booléen
     private bool onTrigger;
-
-    // Pour les animations 
-    //private Animator animator;
-
 
     void Start()
     {
@@ -46,7 +40,8 @@ public class Timer : MonoBehaviour
             if (seconde < 0)
             {
                 // ... une nouvelle scène se charge
-                LoadSceneAsync();
+                gameOver.SetActive(true);
+                scene.SetActive(false);
             }
         }
 
@@ -58,46 +53,6 @@ public class Timer : MonoBehaviour
             myText.text = Mathf.Round(seconde).ToString();
             // ... onTrigger passe en faux
             onTrigger = false;
-        }
-
-
-    }
-    public void LoadSceneAsync()
-    {
-        StartCoroutine(LoadScreenCoroutine());
-    }
-
-    IEnumerator LoadScreenCoroutine()
-    {
-        // Instantiation du prefab
-        var screen = Instantiate(loadScreen);
-        // Ne pas détruire l'écran de chargement / prefab
-        DontDestroyOnLoad(screen);
-
-        // Nom de la scène à charger
-        var loading = SceneManager.LoadSceneAsync(sceneName);
-        // Ne pas lancer la scène
-        loading.allowSceneActivation = false;
-
-        // Tant que le chargement n'est pas fini...
-        while (loading.isDone == false)
-        {
-            // Si la chargement atteint 90%...
-            if (loading.progress >= 0.9f)
-            {
-                // ... la scène se lance
-                loading.allowSceneActivation = true;
-                
-                // ... le paramètre d'animation "Dispartion" s'active
-                //animator.SetBool("Disparition", true);
-
-                // ... et l'écran de chargement / prefab se détruit
-                Destroy(screen);
-            }
-
-            // Le prefab apparaît pendant 3 secondes
-            yield return new WaitForSeconds(3);
-
         }
     }
 
