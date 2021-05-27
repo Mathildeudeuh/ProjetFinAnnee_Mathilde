@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -14,17 +13,12 @@ public class Timer : MonoBehaviour
     // Afficher le texte
     [SerializeField] private Text myText;
 
-    // Prefab
+    // GameObejct
     [SerializeField] GameObject gameOver;
     [SerializeField] GameObject scene;
 
     // Booléen
     private bool onTrigger;
-
-    void Start()
-    {
-
-    }
 
     void Update()
     {
