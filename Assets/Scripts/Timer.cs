@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -46,8 +46,7 @@ public class Timer : MonoBehaviour
             if (seconde < 0)
             {
                 // ... une nouvelle scène se charge
-                //LoadSceneAsync();
-                Debug.Log("Zero");
+                LoadSceneAsync();
             }
         }
 
@@ -63,7 +62,7 @@ public class Timer : MonoBehaviour
 
 
     }
-    /*public void LoadSceneAsync()
+    public void LoadSceneAsync()
     {
         StartCoroutine(LoadScreenCoroutine());
     }
@@ -90,7 +89,7 @@ public class Timer : MonoBehaviour
                 loading.allowSceneActivation = true;
                 
                 // ... le paramètre d'animation "Dispartion" s'active
-                animator.SetBool("Disparition", true);
+                //animator.SetBool("Disparition", true);
 
                 // ... et l'écran de chargement / prefab se détruit
                 Destroy(screen);
@@ -100,10 +99,10 @@ public class Timer : MonoBehaviour
             yield return new WaitForSeconds(3);
 
         }
-    }*/
+    }
 
     // Vérification de collision
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {   
         // Si la collision a lieu avec un objet qui a le tag "Items"...
         if (collision.tag == "Items")
@@ -112,6 +111,11 @@ public class Timer : MonoBehaviour
             onTrigger = true;
         }
         
+    }*/
+
+    public void AddTime()
+    {
+        seconde = addTime;
     }
 
 }
