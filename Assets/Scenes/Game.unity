@@ -4496,6 +4496,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarItem (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3943599133057640456, guid: 382dc5456b953344ab7b5fa74a1c625a, type: 3}
+      propertyPath: m_TagString
+      value: Items
+      objectReference: {fileID: 0}
     - target: {fileID: 3943599133057640462, guid: 382dc5456b953344ab7b5fa74a1c625a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.981953
@@ -4542,6 +4546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    - {fileID: 8446863141777374928, guid: 382dc5456b953344ab7b5fa74a1c625a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 382dc5456b953344ab7b5fa74a1c625a, type: 3}
 --- !u!1 &572174969
 GameObject:
@@ -4912,6 +4917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   star: {fileID: 1111807650}
+  starNo: 0
 --- !u!4 &1111807654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3943599133057640462, guid: 382dc5456b953344ab7b5fa74a1c625a, type: 3}
@@ -5066,6 +5072,23 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &1172530352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172530345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fed82a5e4da600479c8455dcfc690ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seconde: 5
+  myText: {fileID: 2061212410}
+  sceneName: GameOver
+  loadScreen: {fileID: 8296412200858179847, guid: f9e50930971c8954b966c613b200a5c3, type: 3}
+  addTime: 5
 --- !u!1 &1255068335
 GameObject:
   m_ObjectHideFlags: 3
@@ -5171,6 +5194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   star: {fileID: 1422006229}
+  starNo: 0
 --- !u!4 &1422006233 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3943599133057640462, guid: 382dc5456b953344ab7b5fa74a1c625a, type: 3}
@@ -5272,6 +5296,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarItem (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3943599133057640456, guid: 382dc5456b953344ab7b5fa74a1c625a, type: 3}
+      propertyPath: m_TagString
+      value: Items
+      objectReference: {fileID: 0}
     - target: {fileID: 3943599133057640462, guid: 382dc5456b953344ab7b5fa74a1c625a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.3425026
@@ -5318,6 +5346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    - {fileID: 8446863141777374928, guid: 382dc5456b953344ab7b5fa74a1c625a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 382dc5456b953344ab7b5fa74a1c625a, type: 3}
 --- !u!1 &1743914128
 GameObject:
@@ -5343,15 +5372,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743914128}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fed82a5e4da600479c8455dcfc690ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   seconde: 5
-  sceneToLoad: {fileID: 696303469585816894, guid: 2f513775a8cc7a14db7638a5b65e4e59, type: 3}
   myText: {fileID: 2061212410}
   sceneName: GameOver
+  loadScreen: {fileID: 8296412200858179847, guid: f9e50930971c8954b966c613b200a5c3, type: 3}
+  addTime: 5
 --- !u!4 &1743914130
 Transform:
   m_ObjectHideFlags: 0
@@ -5384,6 +5414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   star: {fileID: 1933061068}
+  starNo: 0
 --- !u!4 &1933061072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3943599133057640462, guid: 382dc5456b953344ab7b5fa74a1c625a, type: 3}

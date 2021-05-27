@@ -6,29 +6,48 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
+    // A modifier dans l'inspector
+    //[SerializeField] private GameObject star;
     [SerializeField] private float seconde;
-    [SerializeField] private GameObject sceneToLoad;
     [SerializeField] private Text myText;
     [SerializeField] private string sceneName;
+    [SerializeField] private GameObject loadScreen;
+
+    private bool onTrigger;
+    [SerializeField] private float addTime;
+
     
+
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        if (seconde > 0)
+        // Si onTrigger est faux...
+        if (onTrigger == false)
         {
+            // ... les secondes diminuent
             seconde -= Time.deltaTime;
+            // ... le texte affiche les secondes
             myText.text = Mathf.Round(seconde).ToString();
+
+            // Si les secondes sont inférieur à 0...
+            if (seconde < 0)
+            {
+                // ... une nouvelle scène se charge
+                LoadSceneAsync();
+            }
         }
 
         else
         {
-            LoadSceneAsync();
+            seconde = addTime;
+            myText.text = Mathf.Round(seconde).ToString();
+            onTrigger = false;
         }
-        
+
 
     }
     public void LoadSceneAsync()
@@ -39,7 +58,7 @@ public class Timer : MonoBehaviour
     IEnumerator LoadScreenCoroutine()
     {
         // Instantiation du prefab
-        var screen = Instantiate(sceneToLoad);
+        var screen = Instantiate(loadScreen);
         // Ne pas détruire l'écran de chargement / prefab
         DontDestroyOnLoad(screen);
 
@@ -65,6 +84,17 @@ public class Timer : MonoBehaviour
             yield return new WaitForSeconds(3);
 
         }
-
     }
+
+    // Vérification de collision
+    private void OnTriggerEnter2D(Collider2D collision)
+    {    
+        if (collision.tag == "items")
+        {
+            // onTrigger devient vrai
+            onTrigger = true;
+        }
+        
+    }
+
 }
