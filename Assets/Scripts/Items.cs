@@ -4,20 +4,11 @@ using UnityEngine;
 
 public class Items : MonoBehaviour
 {
-    [SerializeField] GameObject star;
-    private void OnTriggerEnter2D(Collider2D collision)
+    [SerializeField] public GameObject star;
+    public bool starNo = true;
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        var timer = new Timer();
+        star.SetActive(false);
         Debug.Log("tkt ça fonctionne");
-        Destroy(star);
-    }
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
     }
 }

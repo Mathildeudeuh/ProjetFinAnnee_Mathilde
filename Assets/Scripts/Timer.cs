@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
     // A modifier dans l'inspector
-    [SerializeField] private GameObject star;
+    //[SerializeField] private GameObject star;
     [SerializeField] private float seconde;
     [SerializeField] private Text myText;
     [SerializeField] private string sceneName;
@@ -16,6 +16,7 @@ public class Timer : MonoBehaviour
     private bool onTrigger;
     [SerializeField] private float addTime;
 
+    
 
     void Start()
     {
@@ -88,11 +89,9 @@ public class Timer : MonoBehaviour
     // Vérification de collision
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        var starItems = new Items();
         // onTrigger devient vrai
         onTrigger = true;
-
-        // Destruction du game object star
-        Destroy(star);
     }
 
 }
