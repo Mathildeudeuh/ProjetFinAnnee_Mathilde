@@ -37,7 +37,8 @@ public class Timer : MonoBehaviour
             if (seconde < 0)
             {
                 // ... une nouvelle scène se charge
-                LoadSceneAsync();
+                //LoadSceneAsync();
+                Debug.Log("Zero");
             }
         }
 
@@ -50,7 +51,7 @@ public class Timer : MonoBehaviour
 
 
     }
-    public void LoadSceneAsync()
+    /*public void LoadSceneAsync()
     {
         StartCoroutine(LoadScreenCoroutine());
     }
@@ -84,7 +85,7 @@ public class Timer : MonoBehaviour
             yield return new WaitForSeconds(3);
 
         }
-    }
+    }*/
 
     // Vérification de collision
     private void OnTriggerEnter2D(Collider2D collision)
