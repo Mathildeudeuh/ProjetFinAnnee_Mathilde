@@ -8,15 +8,18 @@ public class Items : MonoBehaviour
     [SerializeField] public GameObject star;
 
     // Booléen
-    public bool starNo = true;
+    private bool starNo = true;
 
     // Vérification de collision
-    public void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         // Le prefab "star" se désactive
         star.SetActive(false);
 
-        // "ça fonctionne s'affiche dans la console"
-        Debug.Log("ça fonctionne");
+        // timer va chercher dans le script "Timer"
+        var time = FindObjectOfType<Timer>();
+
+        // On exécute AddTime() du script Timer
+        time.AddTime();
     }
 }
