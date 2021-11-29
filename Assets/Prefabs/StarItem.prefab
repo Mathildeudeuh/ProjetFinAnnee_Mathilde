@@ -83,6 +83,9 @@ GameObject:
   - component: {fileID: 3943599133057640462}
   - component: {fileID: 3943599133057640463}
   - component: {fileID: 1725501552253758833}
+  - component: {fileID: 940743461684461569}
+  - component: {fileID: 8615627385418027706}
+  - component: {fileID: 146245884215586695}
   m_Layer: 0
   m_Name: StarItem
   m_TagString: Untagged
@@ -172,3 +175,50 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.000000029802322}
   serializedVersion: 2
   m_Radius: 0.3793393
+--- !u!114 &940743461684461569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3943599133057640456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1005a8cfc2d5555478e76ea3b390ff59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  star: {fileID: 3943599133057640456}
+--- !u!114 &8615627385418027706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3943599133057640456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caee1f87aa5fa5468e467d7bc0cce95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seconde: 6
+  addTime: 3
+  onTrigger: 0
+  myText: {fileID: 0}
+--- !u!114 &146245884215586695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3943599133057640456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ebbfc53e3d03684f9b9b49287fb9ceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seconde: 0
+  addTime: 0
+  onTrigger: 0
+  myText: {fileID: 0}
+  gameOver: {fileID: 0}
+  scene: {fileID: 0}
