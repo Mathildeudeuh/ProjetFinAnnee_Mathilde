@@ -1,22 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Items : MonoBehaviour
+
+[RequireComponent(typeof(ItemsAddTime))]
+[RequireComponent(typeof(Timer))]
+
+public abstract class Items : MonoBehaviour
 {
-    // Prefab
-    [SerializeField] public GameObject star;
+    public GameObject star { get; private set; }
 
-    // Vérification de collision
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Le prefab "star" se désactive
         star.SetActive(false);
+        AddTime();
 
-        // timer va chercher dans le script "Timer"
-        var time = FindObjectOfType<Timer>();
-
-        // On exécute AddTime() du script Timer
-        time.AddTime();
     }
+
+    public abstract void AddTime();
 }
